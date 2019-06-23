@@ -1,0 +1,30 @@
+<br><br>
+   <h5 class="p-2 text-muted">--- Pizza ----</h5>
+       <br>
+
+<div class="container">
+<div class="row">
+    <ng-container  *ngFor="let pizza of allPizza ; let i = index">
+
+  <div class="col">
+
+          <div class="card" >
+              <img class="card-img-top" [src]="pizza.payload.val().imageUrl" alt="Card image cap">
+              <div class="card-body">
+      
+        <h4 class="card-title">{{pizza.payload.val().title}}</h4>
+        <h6 class="card-text">{{pizza.payload.val().price|currency:USD}}</h6>
+        <p class="card-text">{{pizza.payload.val().description}}</p>
+
+      </div>
+    </div>
+<br>
+  </div>
+  <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+</ng-container>
+
+</div>
+</div>
+
+
+

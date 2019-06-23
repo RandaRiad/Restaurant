@@ -1,0 +1,32 @@
+<br><br>
+   <h5 class="p-2 text-muted">---- Lunch ----</h5>
+       <br>
+
+<div class="container">
+<div class="row">
+    <ng-container  *ngFor="let lunch of allLunch ; let i = index">
+
+  <div class="col">
+
+          <div class="card" >
+              <img class="card-img-top" [src]="lunch.payload.val().imageUrl" alt="Card image cap">
+              <div class="card-body">
+      
+        <h4 class="card-title">{{lunch.payload.val().title}}</h4>
+        <h6 class="card-text">{{lunch.payload.val().price|currency:USD}}</h6>
+
+      </div>
+    </div>
+<br><br>
+  </div>
+  <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+</ng-container>
+
+</div>
+</div>
+
+
+
+
+
+

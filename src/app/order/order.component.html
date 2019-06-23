@@ -1,0 +1,166 @@
+<br><br>
+<div class="container">
+
+  <button class="btn btn-outline-secondary" (click)="choosePizza()">Pizza</button>
+  <button class="btn btn-outline-secondary" (click)="chooseBreakfast()">BreakFast</button>
+  <button class="btn btn-outline-secondary" (click)="chooseLunch()">Lunch</button>
+  <button class="btn btn-outline-secondary" (click)="chooseDinner()">Dinner</button>
+
+
+
+  <br><br>
+
+  <ng-template [ngIf]="firstChoose">
+    <div class="row">
+      <ng-container *ngFor="let pizza of allpizza ; let i = index">
+
+        <div class="col">
+
+          <div class="media">
+            <img [src]="pizza.payload.val().imageUrl" class="mr-3" alt="...">
+            <div class="media-body">
+              <h6>{{pizza.payload.val().title}}</h6>
+              <h6>{{pizza.payload.val().price |currency:USD}}</h6>
+            </div>
+          </div>
+          <div>
+            <button *ngIf="getQauntaty(pizza)===0; else updateQauntaty" (click)='addCardAndQauantaty(pizza)'
+              class="btn btn-primary">Add to Cart</button>
+          </div>
+          <ng-template #updateQauntaty>
+            <div class="row no-gutters">
+              <div class="col-2">
+                <button (click)='decreaseQauntaty(pizza)' class="btn btn-primary btn-block"> -</button>
+              </div>
+              <div class="col text-center " >
+                <h6>{{getQauntaty(pizza)}} in Cart</h6>
+              </div>
+              <div class="col-2">
+                <button (click)='addCardAndQauantaty(pizza)' class="btn btn-primary btn-block"> +</button>
+              </div>
+            </div>
+          </ng-template>
+          <br><br>
+        </div>
+        <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="secondChoose">
+    <div class="row">
+      <ng-container *ngFor="let breakfast of allBreakFast ; let i = index">
+
+        <div class="col">
+
+          <div class="media">
+            <img [src]="breakfast.payload.val().imageUrl" class="mr-3" alt="...">
+            <div class="media-body">
+              <h6>{{breakfast.payload.val().title}}</h6>
+              <h6>{{breakfast.payload.val().price |currency:USD}}</h6>
+
+            </div>
+
+          </div>
+          <div>
+            <button *ngIf="getQauntaty(breakfast)===0; else updateQauntaty" (click)='addCardAndQauantaty(breakfast)'
+              class="btn btn-primary">Add to Cart</button>
+          </div>
+          <ng-template #updateQauntaty>
+            <div class="row no-gutters">
+              <div class="col-2">
+                <button (click)='decreaseQauntaty(breakfast)' class="btn btn-primary btn-block"> -</button>
+              </div>
+              <div class="col text-center ">
+                <h6>{{getQauntaty(breakfast)}} in Cart</h6>
+              </div>
+              <div class="col-2">
+                <button (click)='addCardAndQauantaty(breakfast)' class="btn btn-primary btn-block"> +</button>
+              </div>
+            </div>
+          </ng-template>
+          <br><br>
+        </div>
+        <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="thirdChoose">
+    <div class="row">
+      <ng-container *ngFor="let dinner of allDinner ; let i = index">
+
+        <div class="col">
+
+          <div class="media">
+            <img [src]="dinner.payload.val().imageUrl" class="mr-3" alt="...">
+            <div class="media-body">
+              <h6>{{dinner.payload.val().title}}</h6>
+              <h6>{{dinner.payload.val().price |currency:USD}}</h6>
+
+            </div>
+
+          </div>
+          <div>
+            <button *ngIf="getQauntaty(dinner)===0; else updateQauntaty" (click)='addCardAndQauantaty(dinner)'
+              class="btn btn-primary">Add to Cart</button>
+          </div>
+          <ng-template #updateQauntaty>
+            <div class="row no-gutters">
+              <div class="col-2">
+                <button (click)='decreaseQauntaty(dinner)' class="btn btn-primary btn-block"> -</button>
+              </div>
+              <div class="col text-center ">
+                <h6>{{getQauntaty(dinner)}} in Cart</h6>
+              </div>
+              <div class="col-2">
+                <button (click)='addCardAndQauantaty(dinner)' class="btn btn-primary btn-block"> +</button>
+              </div>
+            </div>
+          </ng-template>
+          <br><br>
+        </div>
+        <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="fourthChoose">
+    <div class="row">
+      <ng-container *ngFor="let lunch of allLunch ; let i = index">
+
+        <div class="col">
+
+          <div class="media">
+            <img [src]="lunch.payload.val().imageUrl" class="mr-3" alt="...">
+            <div class="media-body">
+              <h6>{{lunch.payload.val().title}}</h6>
+              <h6>{{lunch.payload.val().price |currency:USD}}</h6>
+
+            </div>
+
+          </div>
+          <div>
+            <button *ngIf="getQauntaty(lunch)===0; else updateQauntaty" (click)='addCardAndQauantaty(lunch)'
+              class="btn btn-primary">Add to Cart</button>
+          </div>
+          <ng-template #updateQauntaty>
+            <div class="row no-gutters">
+              <div class="col-2">
+                <button (click)='decreaseQauntaty(lunch)' class="btn btn-primary btn-block"> -</button>
+              </div>
+              <div class="col text-center ">
+                <h6>{{getQauntaty(lunch)}} in Cart</h6>
+              </div>
+              <div class="col-2">
+                <button (click)='addCardAndQauantaty(lunch)' class="btn btn-primary btn-block"> +</button>
+              </div>
+            </div>
+          </ng-template>
+          <br><br>
+        </div>
+        <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
+  </ng-template>
+</div>
