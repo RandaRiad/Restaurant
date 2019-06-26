@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.css';
-@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');.card {
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
+
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+.card {
     box-shadow: 8px 8px 8px 8px rgba(54, 6, 36, 0.2);
     max-width: 100%;
     margin: auto;
     font-family: arial;
-   
+   max-height: 56vh
 
   }
   .card-img-top{

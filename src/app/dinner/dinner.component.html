@@ -7,7 +7,7 @@
     <ng-container  *ngFor="let dinner of alldinner ; let i = index">
 
   <div class="col">
-
+      <div class="animated zoomIn" >
           <div class="card" >
               <img class="card-img-top" [src]="dinner.payload.val().imageUrl" alt="Card image cap">
               <div class="card-body">
@@ -16,7 +16,7 @@
         <h6 class="card-text">{{dinner.payload.val().price|currency:USD}}</h6>
 
       </div>
-    </div>
+    </div></div>
 <br><br>
   </div>
   <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>

@@ -3,10 +3,10 @@
 <header class="blog-header py-3">
   <div class="row flex-nowrap justify-content-between align-items-center">
     <div class="col-4 pt-1">
-      <a class="text-muted" href="#">Restaurant</a>
+      <a class="text-muted" [routerLink]="['']">Restaurant</a>
     </div>
     <div class="col-4 text-center">
-      <a class="blog-header-logo text-dark" href="#">RandaFood</a>
+      <a class="blog-header-logo text-dark"[routerLink]="['']">RandaFood</a>
     </div>
     <div class="col-4 d-flex justify-content-end align-items-center">
       
@@ -29,9 +29,9 @@
 <ngb-carousel  >
 
   <ng-template ngbSlide>
-    <img class="d-block w-100" src="assets\img\download.jpeg" alt="Barbq">
+    <img class="d-block w-100" src="assets\img\download.jpeg" alt="Meat">
     <div class="carousel-caption">
-      <h3>BarBq</h3>
+      <h3>Meat</h3>
       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
     </div>
   </ng-template>
@@ -51,7 +51,11 @@
   </ng-template>
 
 </ngb-carousel>
-<!-- </div></div> -->
+
+<div>
+  
+
+</div>
 
 </div>
 

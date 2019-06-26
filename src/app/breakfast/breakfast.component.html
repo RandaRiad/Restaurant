@@ -7,6 +7,7 @@
     <ng-container  *ngFor="let breakFast of allbreakFast ; let i = index">
 
   <div class="col">
+      <div class="animated zoomIn" >
 
           <div class="card" >
               <img class="card-img-top" [src]="breakFast.payload.val().imageUrl" alt="Card image cap">
@@ -16,7 +17,7 @@
         <h6 class="card-text">{{breakFast.payload.val().price|currency:USD}}</h6>
 
       </div>
-    </div>
+    </div></div>
 <br><br>
   </div>
   <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>

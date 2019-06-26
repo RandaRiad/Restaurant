@@ -1,6 +1,7 @@
 import { BreakfastComponent } from './breakfast/breakfast.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule} from '@angular/forms'
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,8 @@ import { OrderComponent } from './order/order.component';
 import { LunchComponent } from './lunch/lunch.component';
 import { DinnerService } from './services/dinner/dinner.service';
 import { LunchService } from './services/lunch/lunch.service';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,9 @@ import { LunchService } from './services/lunch/lunch.service';
     DinnerComponent,
     BreakfastComponent,
     OrderComponent,
-    LunchComponent
+    LunchComponent,
+    CheckOutComponent,
+    HomeComponent
     
   ],
   imports: [
@@ -42,7 +47,8 @@ import { LunchService } from './services/lunch/lunch.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 
 
   ],

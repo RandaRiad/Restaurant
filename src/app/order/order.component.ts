@@ -20,7 +20,8 @@ export class OrderComponent implements OnInit,OnDestroy {
   allBreakFast;
   allDinner;
   allLunch;
-  subscribe1:Subscription
+  subscribe1:Subscription;
+  subscribe2:Subscription;
   constructor(private pizza:PizzaService,
     private breakFast:BreakfastService,
     private dinner:DinnerService,
@@ -72,12 +73,22 @@ this.fourthChoose=false;
 
 
   cart: any;//contain all products that in card
+  allProductInCart:any[]=[];
   async ngOnInit() {
     this.subscribe1 = (await this.card.getCardProduct()).valueChanges().subscribe(cart => {
     this.cart = cart;
-    })//return all product in the card in database
+    })//return all product in the card in database;
+          //contain all products that in card
+  
+          this.subscribe2 = (await this.card.getAllProductsInCard()).snapshotChanges().subscribe(allProduct => {
+      this.allProductInCart = allProduct;
+
+    })     //return all product in the card in database
   }
-   ;
+
+
+  
+   
   getQauntaty(product) {// reuturn qauntati of card item
     if (!this.cart ) {
        return 0 
@@ -94,8 +105,33 @@ this.fourthChoose=false;
   addCardAndQauantaty(product) {//for card in database if product exsist will increase qauntaty
     this.card.addProductToCard(product);
   }
+
+  delete(item) {
+    if (confirm("Are you sure to Delete this Product")) {
+      this.card.deleteProduct(item);
+    }}
+
+    totalProductsPrice=0 ;
+
+   totalPrice() {
+     if(this.totalProductsPrice==0){
+    for (let items of this.allProductInCart as any) {
+     
+        let qauantaty = items.payload.val().quantity;
+        let price = items.payload.val().product.price as number;
+        let productPrice = qauantaty * price;
+       this.totalProductsPrice+=productPrice; 
+    }
+    return this.totalProductsPrice as number;
+  }
+  else{
+    return this.totalProductsPrice=0;  
+  }
+    }
+  
   ngOnDestroy(): void {
-this.subscribe1.unsubscribe();  }
+this.subscribe1.unsubscribe();
+this.subscribe2.unsubscribe();  }
   
   }
 
